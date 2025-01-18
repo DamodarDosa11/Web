@@ -1,6 +1,13 @@
 from flask import Flask,redirect,url_for,render_template,request
+from flask_mysqldb import MySQL
 
 app=Flask(__name__)
+app.config['MySQL_HOST'] = 'local host'
+app.config['MySQL_USER'] = 'root'
+app.config['MySQL_PASSWORD'] = ' '
+app.config['MySQL_DB'] = 'registered'
+mysql=MySQL(__name__)
+c = MySQL(app)
 
 @app.route('/reg')
 def page():
